@@ -75,8 +75,7 @@ object BinaryTree {
     if (binaryTree == null) value
     else binaryTree match {
       case node: Node =>
-        getValue(node.left, f(value, node.value), f)
-        getValue(node.right, f(value, node.value), f)
+        f(getValue(node.left, f(value, node.value), f), getValue(node.right, f(value, node.value), f))
       case Leaf(v) =>
         f(value,v)
     }

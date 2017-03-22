@@ -5,7 +5,7 @@ import org.scalatest.{Matchers, FlatSpec}
   */
 class BinaryTreeSpec extends FlatSpec with Matchers{
 
-  val binary = BinaryTree.b
+  val binary = Node(6, Node(3, Leaf(2), Leaf(4)), Node(15, Leaf(8), Node(20, null, Leaf(21))))
 
   val eq = (a:Int,b:Int) => a == b
   val lt = (a:Int, b:Int) => if(a < b) a else b
@@ -20,11 +20,11 @@ class BinaryTreeSpec extends FlatSpec with Matchers{
   }
 
   "A binary tree getValue" should "return the min value of the tree" in {
-    BinaryTree.getValue(binary, Integer.MAX_VALUE, lt) shouldEqual(1)
+    BinaryTree.getValue(binary, Integer.MAX_VALUE, lt) shouldEqual(2)
   }
 
   "A binary tree getValue" should "return the max value of the tree" in {
-    BinaryTree.getValue(binary, Integer.MIN_VALUE, gt) shouldEqual(10)
+    BinaryTree.getValue(binary, Integer.MIN_VALUE, gt) shouldEqual(21)
   }
 
 }
