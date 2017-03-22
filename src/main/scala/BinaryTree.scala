@@ -6,7 +6,6 @@ sealed trait BinaryTree {
 }
 
 case class Node(override val value: Int, left: BinaryTree, right: BinaryTree) extends BinaryTree
-
 case class Leaf(override val value: Int) extends BinaryTree
 
 
@@ -99,6 +98,37 @@ object BinaryTree {
       case Leaf(v) => true
     }
   }
+
+
+  /*def insert(binaryTree: BinaryTree, value: Int): BinaryTree = {
+
+    def insert(root: BinaryTree, tree: BinaryTree, value: Int): BinaryTree = {
+      binaryTree match {
+        case Node(v,left,right) =>
+          if(value < v) {
+            val r = if(root == null) Node(v,Leaf(left.value),right) else {
+
+              root
+            }
+            insert(r,left,value)
+          }
+          else if(value > v) {
+            val r = if(root == null) Node(v,left,Leaf(right.value)) else root
+            insert(r,right,value)
+          }
+          else root
+        case Leaf(v) =>
+          if(value < v) {
+            val r = if(root == null) Node(v, Leaf(value), null) else {
+              Node(v, Leaf(value), null)
+            }
+          }
+      }
+    }
+
+    insert(null,binaryTree,value)
+
+  }*/
 
 
 }
