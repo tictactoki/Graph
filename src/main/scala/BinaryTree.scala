@@ -1,11 +1,13 @@
 /**
   * Created by stephane on 22/03/2017.
   */
-sealed trait BinaryTree
+sealed trait BinaryTree {
+  val value: Int
+}
 
-case class Node(value: Int, left: BinaryTree, right: BinaryTree) extends BinaryTree
+case class Node(override val value: Int, left: BinaryTree, right: BinaryTree) extends BinaryTree
 
-case class Leaf(value: Int) extends BinaryTree
+case class Leaf(override val value: Int) extends BinaryTree
 
 
 object BinaryTree {
@@ -77,10 +79,26 @@ object BinaryTree {
       case node: Node =>
         f(getValue(node.left, f(value, node.value), f), getValue(node.right, f(value, node.value), f))
       case Leaf(v) =>
-        f(value,v)
+        f(value, v)
     }
   }
 
+  def isBinaryTree(binaryTree: BinaryTree): Boolean = {
+    if (binaryTree == null) true
+    else binaryTree match {
+      case Node(v,left,right) =>
+        if(left != null) {
+          if(left.value > v) return false
+          else isBinaryTree(left)
+        }
+        if(right != null) {
+          if(right.value < v) return false
+          else isBinaryTree(right)
+        }
+        return true
+      case Leaf(v) => true
+    }
+  }
 
 
 }
