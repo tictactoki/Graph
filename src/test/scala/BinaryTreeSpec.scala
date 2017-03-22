@@ -5,9 +5,10 @@ import org.scalatest.{Matchers, FlatSpec}
   */
 class BinaryTreeSpec extends FlatSpec with Matchers{
 
-  val binary = Node(6, Node(3, Leaf(2), Leaf(4)), Node(15, Leaf(8), Node(20, null, Leaf(21))))
-  val node = Node(1, null,null)
-  val tree = Node(1, Node(2, Leaf(4), Leaf(5)), Node(6, Leaf(8), Node(9, null, Leaf(10))))
+
+  val binary = SimpleNode(6, SimpleNode(3, SimpleLeaf(2), SimpleLeaf(4)), SimpleNode(15, SimpleLeaf(8), SimpleNode(20, null, SimpleLeaf(21))))
+  val node = SimpleNode(1, null,null)
+  val tree = SimpleNode(1, SimpleNode(2, SimpleLeaf(4), SimpleLeaf(5)), SimpleNode(6, SimpleLeaf(8), SimpleNode(9, null, Leaf(10))))
 
   val eq = (a:Int,b:Int) => a == b
   val lt = (a:Int, b:Int) => if(a < b) a else b
