@@ -8,7 +8,7 @@ class BinaryTreeSpec extends FlatSpec with Matchers{
 
   val binary = SimpleNode(6, SimpleNode(3, SimpleLeaf(2), SimpleLeaf(4)), SimpleNode(15, SimpleLeaf(8), SimpleNode(20, null, SimpleLeaf(21))))
   val node = SimpleNode(1, null,null)
-  val tree = SimpleNode(1, SimpleNode(2, SimpleLeaf(4), SimpleLeaf(5)), SimpleNode(6, SimpleLeaf(8), SimpleNode(9, null, Leaf(10))))
+  val tree = SimpleNode(1, SimpleNode(2, SimpleLeaf(4), SimpleLeaf(5)), SimpleNode(6, SimpleLeaf(8), SimpleNode(9, null, SimpleLeaf(10))))
 
   val eq = (a:Int,b:Int) => a == b
   val lt = (a:Int, b:Int) => if(a < b) a else b

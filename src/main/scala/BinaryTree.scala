@@ -13,7 +13,7 @@ sealed trait CompleteBinaryTree {
   val father: CompleteBinaryTree
 }
 
-case class CompleteNode(override val value: Int, override val father: CompleteNode = this, left: BinaryTree = null, right: BinaryTree = null) extends CompleteBinaryTree
+case class CompleteNode(override val value: Int, override val father: CompleteNode = null, left: BinaryTree = null, right: BinaryTree = null) extends CompleteBinaryTree
 case class CompleteLeaf(override val value: Int, override val father: CompleteNode) extends CompleteBinaryTree
 
 
